@@ -1,5 +1,10 @@
 v-model="newTask" ... going to watch newTask in state
+v-model="task.done"... watching done attr in state
 
 events
 @keyup.enter="addTask($event)" - whenever user hits enter key,
 - call up method addTask, which will add the value of input to state 
+
+@click="check(task)" - change state to true
+
+how to bind class? :class="{'is-done': task.done}

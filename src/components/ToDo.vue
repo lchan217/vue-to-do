@@ -2,12 +2,15 @@
   <div>
     <header>
       <h1>To Do List</h1>
-      <input placeholder="what needs to be done?" v-model='newTask' @keyup.enter="addTask($event)"></input>
+      <input placeholder="what needs to be done?" v-model="newTask" @keyup.enter="addTask($event)" />
     </header>
 
     <div>
       <ul>
-        <li v-for="task in tasks" v-bind:key="task.id">{{task.text}}</li>
+        <li v-for="task in tasks" v-bind:key="task.id" :class="{'is-done': task.done}">
+          <input type="checkbox" v-model="task.done" @click="check" />
+          {{task.text}}
+        </li>
       </ul>
     </div>
   </div>
@@ -30,16 +33,22 @@ export default {
         }
       ]
     };
-  }, 
+  },
 
   methods: {
-      addTask(event){
-          this.tasks.push({text: this.newTask, done: false})
-          this.newTask=''
-      }
+    addTask(event) {
+      this.tasks.push({ text: this.newTask, done: false });
+      this.newTask = "";
+    },
+    check(task) {
+      task.done = true;
+    }
   }
 };
 </script>
 
 <style scoped>
+.is-done {
+  text-decoration: line-through;
+}
 </style>
