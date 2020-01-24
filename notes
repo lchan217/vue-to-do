@@ -1,0 +1,5 @@
+v-model="newTask" ... going to watch newTask in state
+
+events
+@keyup.enter="addTask($event)" - whenever user hits enter key,
+- call up method addTask, which will add the value of input to state 
