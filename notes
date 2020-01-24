@@ -8,3 +8,4 @@ events
 @click="check(task)" - change state to true
 
 how to bind class? :class="{'is-done': task.done}
+-if task.done is true, apply the class
